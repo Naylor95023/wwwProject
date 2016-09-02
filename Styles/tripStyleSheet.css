@@ -1,0 +1,36 @@
+﻿.body 
+{
+    text-align:center;
+}
+.title
+{
+    font-size:x-large;
+    font-weight:bold;
+    font-family:標楷體;
+    text-align: center;
+}
+.engTitle
+{
+    font-size:x-large;
+    font-weight:bold;
+}
+.placeTitle
+{
+    font-size:xx-large;
+    font-weight:bold;
+    font-family:標楷體;
+    color:Red;
+}
+.tableHead
+{
+    text-align:left;
+    white-space:nowrap;
+}
+.tableContent
+{
+    text-align:left;
+}
+.formViewContent
+{
+    font-family:標楷體;
+}

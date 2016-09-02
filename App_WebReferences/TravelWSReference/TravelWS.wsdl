@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="getPlaceData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="placeId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPlaceDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getPlaceDataResult" type="tns:PlaceData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PlaceData">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="price" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="flickrId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="youtubeId" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="latitude" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="longitude" type="s:float" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="sendMailByGoogle">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="mailData" type="tns:MailData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="MailData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="receiverName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="receiverAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="senderName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="senderAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="subject" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="sendMailByGoogleResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="sendMailByYahoo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="mailData" type="tns:MailData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="sendMailByYahooResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="getPlaceDataSoapIn">
+    <wsdl:part name="parameters" element="tns:getPlaceData" />
+  </wsdl:message>
+  <wsdl:message name="getPlaceDataSoapOut">
+    <wsdl:part name="parameters" element="tns:getPlaceDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="sendMailByGoogleSoapIn">
+    <wsdl:part name="parameters" element="tns:sendMailByGoogle" />
+  </wsdl:message>
+  <wsdl:message name="sendMailByGoogleSoapOut">
+    <wsdl:part name="parameters" element="tns:sendMailByGoogleResponse" />
+  </wsdl:message>
+  <wsdl:message name="sendMailByYahooSoapIn">
+    <wsdl:part name="parameters" element="tns:sendMailByYahoo" />
+  </wsdl:message>
+  <wsdl:message name="sendMailByYahooSoapOut">
+    <wsdl:part name="parameters" element="tns:sendMailByYahooResponse" />
+  </wsdl:message>
+  <wsdl:portType name="TravelWSSoap">
+    <wsdl:operation name="getPlaceData">
+      <wsdl:input message="tns:getPlaceDataSoapIn" />
+      <wsdl:output message="tns:getPlaceDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="sendMailByGoogle">
+      <wsdl:input message="tns:sendMailByGoogleSoapIn" />
+      <wsdl:output message="tns:sendMailByGoogleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="sendMailByYahoo">
+      <wsdl:input message="tns:sendMailByYahooSoapIn" />
+      <wsdl:output message="tns:sendMailByYahooSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TravelWSSoap" type="tns:TravelWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getPlaceData">
+      <soap:operation soapAction="http://tempuri.org/getPlaceData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendMailByGoogle">
+      <soap:operation soapAction="http://tempuri.org/sendMailByGoogle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendMailByYahoo">
+      <soap:operation soapAction="http://tempuri.org/sendMailByYahoo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TravelWSSoap12" type="tns:TravelWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getPlaceData">
+      <soap12:operation soapAction="http://tempuri.org/getPlaceData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendMailByGoogle">
+      <soap12:operation soapAction="http://tempuri.org/sendMailByGoogle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendMailByYahoo">
+      <soap12:operation soapAction="http://tempuri.org/sendMailByYahoo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TravelWS">
+    <wsdl:port name="TravelWSSoap" binding="tns:TravelWSSoap">
+      <soap:address location="http://localhost:38589/100590347homework_2/WebServices/TravelWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TravelWSSoap12" binding="tns:TravelWSSoap12">
+      <soap12:address location="http://localhost:38589/100590347homework_2/WebServices/TravelWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

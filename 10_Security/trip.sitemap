@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+    <siteMapNode url="~/10_Security/" title=""  description="">
+      
+<siteMapNode url="~/10_Security/homePage.aspx" title="網站首頁"  description=""/>
+
+<siteMapNode url="~/10_Security/guest/register.aspx" title="註冊帳號"  description=""/>
+<siteMapNode url="~/10_Security/member/passwordChange.aspx" title="更改密碼"  description=""/>
+<siteMapNode url="~/10_Security/guest/passwordRecovery.aspx" title="忘記密碼"  description=""/>
+
+<siteMapNode url="~/10_Security/school/threeSchool.aspx" title="三校局勢"  description=""/>
+<siteMapNode url="~/10_Security/school/schoolvote.aspx" title="人氣票選"  description=""/>
+
+<siteMapNode url="http://www.google.com.tw/" title="郵件通訊"  description="" roles="customer"/>
+
+<siteMapNode url="~/10_Security/admin/school.aspx" title="校園資訊管理"  description=""/>
+<siteMapNode url="~/10_Security/admin/vote.aspx" title="校園美景管理"  description=""/>
+<siteMapNode url="~/10_Security/admin/hotSchool.aspx" title="人氣票選結果"  description=""/>
+</siteMapNode>
+</siteMap>
